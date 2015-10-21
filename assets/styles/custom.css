@@ -1,0 +1,48 @@
+/**
+Colors
+**/
+@white:#FFFFFF;
+@green:#93C038;
+@orange:#F48744;
+@grey:#777574
+@blue:#189ECA;
+@red:#D16565;
+
+.jumbotron{
+  text-align: center;
+  margin: 10px;
+  padding: 20px;
+  text-align: center;
+}
+.jumbotron h2{
+  font-size: 1.5em;
+  letter-spacing: -1px;
+  margin: 30px;
+  text-align: center;
+  color: grey;
+
+}
+.form-signin{
+  max-width: 25%;
+  padding: 19px 29px 29px;
+  align-content: center;
+  margin: 0 auto 20px;
+  margin-top: 20px;
+  background-color: lightgray;
+  border: 2px solid darkolivegreen;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px ;
+}
+.form-signin h2{
+  text-align : center;
+  margin-top: 0px;
+}
+.form-control{
+  width: 80%;
+  alignment: center;
+}
+.btn-primary{
+  width: 80%;
+  alignment: center;
+}

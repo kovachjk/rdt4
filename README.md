@@ -1,2 +1,3 @@
-# rdt4
-forth build
+# rdt4Sails
+
+a [Sails](http://sailsjs.org) application
