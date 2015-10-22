@@ -108,4 +108,114 @@
     </div>   
 </div>
     
+<div ng-controller="siteCltr"></div>
+<div style="display: inline">    
+    <h2><%= title %> </h2>
+    <h2><%= siteTypeStrings.childPlural %> Belonging To:<br> <%- breadCrumbs%> </h2>
+
+    <div class="data-table">
+</div>
+    <div id="siteList" style="display:block">
+    <table >
+        <thead>
+            <th width="50px">Num</th>
+            <th>Site Name</th>
+            <th>Site Type</th>
+            <th>Description</th>
+            <th>Manage</th>
+        </thead>
+        <tbody id="tblRows">
+           <% if (data.length) { %>
+            <% data.forEach(function(site, index) { %>
+                <tr id="<%= index+1%>">
+                        <td><%= index+1%></td> 
+                        <td><a class="sName" href="/site/sites/?idParent=<%=site.idSite%>&level=<%=site.siteLevel%>&name=<%=site.siteName%>"><%=site.siteName%></a> </td>  
+                        <td><%= site.siteType%></td>       
+                        <td><%= site.siteDesc%></td>  
+                        <td>
+                            <a class="a-inside edit" href="javascript:void(0)" 
+                                            onClick="showHide()">Edit / </a>
+
+                            <!--a class="a-inside edit" href="/site/?=<%=site.idSite %>&
+                                        parentLevel=<%=site.parentLevel %>&
+                                        siteDesc=<%=site.siteDesc %>&
+                                        siteName=<%=site.siteName %>&
+                                        siteType=<%=site.siteType %>">Edit / </a-->
+                        <a class="a-inside delete" href="javascript:void(0)" onClick="deleteSite(<%=site.idSite %>)">Delete</a>
+                    </td>
+                    </tr>
+                <%})%>
+
+        <% } else { %>
+            <tr>
+                <td colspan="5">No <%=siteTypeStrings.childSingular%> Sites Found </td>
+            </tr>
+        <%}%>
+        </tbody> 
+    </table>
+    </div>
+<div id="siteUpdate" style="display:none">
+    <form id="updateForm">
+        <<table>
+            <tr>
+                <th>Site Type</th>
+                <th>Site Name</th>
+                <th>Site Desc</th>
+            </tr>
+            <tr>
+                <td><select name="siteType" ></td>
+                <td>Cell</td>
+            </tr>
+            <tr>
+                <td>Cell</td>
+                <td>Cell</td>
+            </tr>
+
+        </table>
+        <input name="newSiteName" length='20'/>
+        <input name="newSiteDesc" lenght='30'/>
+    </form>
+    <input type="button" value="Back" onclick="showHide()" />
+    <input type="button" value="Update" onclick="updateSite()" />
+</div>
+    
+<div id="siteCreate">
+    <h3>Create New <%= siteTypeStrings.childSingular %> Under <%= parentSite.siteName%></h3>
+
+        <form method="post" action="" id="formCreateSite">
+            <table cellpadding="3">
+                <tr>
+                    <th>Site Type</th><th>Site Name</th><th>Description</th>
+                </tr>
+                <tr>
+                    <td>
+                        <% if (options) { %>
+                        <select id="siteLevel">
+                          <option value="0" selected="selected" style="display:none;">Select Site Type</option>
+                           <% options.forEach(function(option){%>
+                          <option value="<%= option.value %>"><%=option.name%></option>
+                          <% }) %>
+                        </select>
+                        <% } %>
+
+                    </td>
+                    <td> <input type="text" id="siteName"></td>
+                    <td><input type="text" id="siteDesc"></td>
+                </tr>
+                <tr>
+                    <td class="label"></td>
+                    <td >
+                        <input id="new-backBtn" type="button" value="Back" >
+                    </td>
+                    <td colspan="2">
+                        <input  type="button" value="Save" onClick="createSite()">
+                    </td>
+                </tr>
+            </table>
+            <input type="hidden" id="idParent" value="<%= parentSite.idSite %>">
+            <input type="hidden" id="siteHash" value="<%= parentSite.siteLevel %>">
+        </form>
+    </div>   
+</div>
+    
   <% block('localScripts', '<script src="/angular/sites/SiteController.js"></script>') %>
