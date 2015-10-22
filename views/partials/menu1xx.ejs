@@ -74,3 +74,79 @@
             </div><!-- /.navbar-collapse -->
         </div>
     <!--/nav-->
+<!--
+ * Created by johnk on 6/8/2015.
+ * Page menu system inspired by:
+ * http://danialk.github.io/blog/2014/12/05/express-4-tutorial-simple-server/
+    <nav id="myNavbar" class="navbar navbar-default" role="navigation">
+         Brand and toggle get grouped for better mobile display
+          copied from
+          http://www.tutorialrepublic.com/codelab.php?topic=bootstrap&file=dropdowns-within-navbar
+          -->
+        <div class="rdtNav container">
+            <div class="navbar-header">
+
+                <a class="navbar-brand" href="/">
+                    <span class="glyphicon glyphicon glyphicon-tree-deciduous"></span>
+                    Redit Knows
+                </a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+   
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle">Run<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/sites/listSites/Home/0/0">Sites</a></li>
+                                <li><a href="/routes/listRoutes">Route</a></li>
+
+    
+                                <li class="divider"></li>
+                                <li><a href="#">Trash</a></li>}}
+                        </ul>
+                    </li>
+   
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Manage<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/routeViews/routeManageMB">Route</a></li>
+                            <li><a href="/testViews/testsConfigMB">Tests</a></li>
+                            {{! <li><a href="#">Users</a></li>
+                             <li><a href="#">Components</a></li>
+                           {!
+                         <li class="divider"></li>
+                         <li><a href="#">Trash</a></li>}}
+                        </ul>
+                    </li>
+        
+                    <li class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle">Configure<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/sites/configSites/Home/0/0">Sites</a></li>
+                            <!--li><a href="/routeViews/routeConfigMB">Routes</a></li-->
+                            <li><a href="/acqViews/acqConfigMB">Acquisitions</a></li>
+                            <li><a href="/testViews/testsConfig">Tests</a></li>
+                            <li><a href="/users/">Users</a></li>
+                            <li><a href="#">Components</a></li>
+                            <li><a href="#">Engine Geometries</a></li>
+                            <li><a href="/geoCompressor/">Compressor Geometries</a></li>
+                            {{!
+                        <li class="divider"></li>
+                        <li><a href="#">Trash</a></li>}}
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">System <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Settings</a></li>
+                            <li><a href="/about">About</a></li>
+                
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    <!--/nav-->
