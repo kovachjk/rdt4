@@ -8,8 +8,7 @@
  * and open the template in the editor.
  */
 //ToDo: Add method for alerting to duplicate emails
-angular.module('UserModule',['toastr','compareTo'])
-.controller('UserController',['$scope','$http','$log','toastr','$timeout',function($scope,$http,$log,toastr,$timeout){
+angular.module('reditApp').controller('UserController',['$scope','$http','$log','toastr','$timeout',function($scope,$http,$log,toastr,$timeout){
     $scope.signupForm = {
         loading:false,
         myName:'JKK'

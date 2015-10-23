@@ -8,7 +8,7 @@ var password = require('machinepack-passwords');
 module.exports = {
     home:function(req,res,next){
         res.locals.layout = 'layouts/external';//Found in config/views.layout and spcifies what layout.ejs to use
-        res.view('login',{angApp:'UserModule'});
+        res.view('login',{angApp:'reditApp'});
     },
     login:function(req,res,next){
         console.log('L10 In userController.login');
@@ -48,7 +48,7 @@ module.exports = {
         res.view('user/signup',{angApp:'UserModule'});
     },
     index:function(req,res,next){
-        res.view('user/index',{angApp:'UserModule'});
+        res.view('user/index',{angApp:'reditApp'});
     },
     createUser: function(req, res, next){   
         
