@@ -37,7 +37,12 @@ module.exports = {
         type: 'string',
         required: true
     },
-
+    //10 different access level for the user
+    //Viewer = 0, User= 1-5, Manager = 6-8,   Admin = 9, superUser = 69
+    userAccessLevel:{
+        type: 'integer',
+        defaultsTo: '0'//viewer
+    },
     // The timestamp when the the user last logged in
     // (i.e. sent a username and password to the server)
     lastLoggedIn: {

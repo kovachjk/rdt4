@@ -1,39 +1,16 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Chrysler Truck </a>
+
+      <a class="navbar-brand" href="#">Stillbright Monitoring Technologies</a><!-- ADD LINK TO STILLBRIGHT WEB SITE -->
     </div>
     <div ng-controller="UserController" class="collapse navbar-collapse" id="myNavbar">
        
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="/user"><span class="glyphicon glyphicon-user"></span>Create Account</a></li>
+     
         
-        
-        
-        <!-- LOGIN FORM -->  
-            <form ng-submit="submitLoginForm()" class="navbar-form navbar-right">
-
-                <!-- E M A I L -->
-                <div class="form-group">
-                    <input ng-model="loginForm.email" type="text" placeholder="Email" name="email" class="form-control">
-                </div>
-
-                <!-- P A S S W O R D -->
-                <div class="form-group">
-                    <input ng-model="loginForm.password" type="password" placeholder="Password" name="password" class="form-control">
-                </div>
-                    <button type="submit" class="btn btn-success">Sign In
-                        <!--span ng-show="!loginForm.loading">Sign in</span>
-                        <span ng-show="loginForm.loading" class="fa fa-spinner"></span>
-                        <span ng-show="loginForm.loading">Signing in...</span -->
-                    </button>
-                <input type="hidden" name="_csrf" value="<%= _csrf %>" />
-            </form>
+     
+            
       </ul>
     </div>
   </div>
