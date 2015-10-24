@@ -6,9 +6,21 @@
  */
 var password = require('machinepack-passwords');
 module.exports = {
+    index:function(req,res,next){
+        res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
+        res.view('homepage');
+    },
+    demo:function(req,res,next){
+        res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
+        res.view('homepageDemo');
+    },
     home:function(req,res,next){
-        res.locals.layout = 'layouts/external';//Found in config/views.layout and spcifies what layout.ejs to use
-        res.view('login',{angApp:'reditApp'});
+        res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
+        res.view('login');
+    },
+    sendText: function(req,res,next){
+        res.locals.layout=false;
+        res.view('about.ejs');
     },
     login:function(req,res,next){
         console.log('L10 In userController.login');
@@ -44,11 +56,8 @@ module.exports = {
     /** Shows the new user sign in page  when url = get/signup */
     signup:function(req,res,next){
         console.log('L45 In userController.signup');
-        res.locals.layout = 'layouts/external';//Found in config/views.layout and spcifies what layout.ejs to use
-        res.view('user/signup',{angApp:'UserModule'});
-    },
-    index:function(req,res,next){
-        res.view('user/index',{angApp:'reditApp'});
+        res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
+        res.view('user/signup');
     },
     createUser: function(req, res, next){   
         

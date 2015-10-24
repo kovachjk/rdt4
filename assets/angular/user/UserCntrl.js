@@ -8,11 +8,39 @@
  * and open the template in the editor.
  */
 //ToDo: Add method for alerting to duplicate emails
-angular.module('reditApp').controller('UserController',['$scope','$http','$log','toastr','$timeout',function($scope,$http,$log,toastr,$timeout){
+angular.module('reditApp').controller('UserCntrl',['$scope','$http','$log','toastr','$timeout',function($scope,$http,$log,toastr,$timeout){
     $scope.signupForm = {
         loading:false,
-        myName:'JKK'
+        myName:'',
+        myPartial:"/angular/user/table.ejs",
+        myLastPartial:""
     };
+    $scope.getLastPartial = function(){
+        $log.debug("In getLastPartials");
+        $scope.signupForm.myName = 'JKK2';
+        $log.debug("LastPartial = ", $scope.signupForm.myLastPartial);
+        $scope.signupForm.myPartial = $scope.signupForm.myLastPartial;      
+    };
+    $scope.getPartial = function(pName){
+        $log.debug("In getPartials");
+        $scope.signupForm.myName = 'JKK1';
+        $scope.signupForm.myLastPartial = $scope.signupForm.myPartial; 
+        $scope.signupForm.myPartial = "/angular/user/"+ pName;
+    };
+    $scope.showSignupForm = function(){
+        $log.debug("In showSignupForm");
+        $scope.signupForm.myName = 'JKK';
+        $scope.signupForm.myPartial = "/angular/user/goodbye.ejs"
+    };
+    $scope.showLoginForm = function(){
+        $scope.todos[2].action = "Sell Running Shoes";
+    };
+    $scope.todos = [
+        { action: "Get groceries", complete: false },
+        { action: "Call plumber", complete: false },
+        { action: "Buy running shoes", complete: true },
+        { action: "Buy flowers", complete: false },
+        { action: "Call family", complete: false }];
     
     $scope.submitLoginForm = function(){
         console.log('login Button Pressed \r password = ', $scope.loginForm.password,'\r email = ',$scope.loginForm.email);
@@ -45,7 +73,7 @@ angular.module('reditApp').controller('UserController',['$scope','$http','$log',
         .finally(function eitherWay(){
             $scope.signupForm.loading = false;
         });
-    },
+    };
     $scope.submitSignupForm = function(){
         console.log('Button for new user Pressed');
         // Set the loading state (i.e. show loading spinner)

@@ -1,0 +1,25 @@
+<div class="container-fluid" ng-controller="UserCntrl">
+    <ng-include src="signupForm.myPartial"></ng-include>
+    <div class="jumbotron col-sm-4 col-lg-8 col-centered">
+            <h1>Stillbright Technologies LLC</h1>
+            <p>Recip Diagnostic Project</p>
+        
+   {{signupForm.myName}}
+       <br>
+       <button class="btn btn-default " ng-click="getPartial('goodbye.ejs')" >
+            Create New User and Site
+        </button>
+        <br><br>
+      <button class="btn   col-med-6" ng-click="showLoginForm()">
+            Sign In to Existing Site
+        </button>
+
+      <br><br>
+      <button type="button" class="btn   col-med-6" >
+               View Demo Site   
+      </button>
+    </div>
+
+  
+</div>
+<% block('localScripts','<script src="/angular/app.js"></script> \r\t <script src="/angular/user/UserCntrl.js"></script>') %>
