@@ -12,7 +12,7 @@ angular.module('reditApp').controller('UserCntrl',['$scope','$http','$log','toas
     $scope.signupForm = {
         loading:false,
         myName:'',
-        myPartial:"/angular/user/table.ejs",
+        myPartial:"/angular/application/partial_appSplash.ejs",
         myLastPartial:""
     };
     $scope.getLastPartial = function(){
@@ -25,7 +25,7 @@ angular.module('reditApp').controller('UserCntrl',['$scope','$http','$log','toas
         $log.debug("In getPartials");
         $scope.signupForm.myName = 'JKK1';
         $scope.signupForm.myLastPartial = $scope.signupForm.myPartial; 
-        $scope.signupForm.myPartial = "/angular/user/"+ pName;
+        $scope.signupForm.myPartial = "/angular/application/"+ pName;
     };
     $scope.showSignupForm = function(){
         $log.debug("In showSignupForm");

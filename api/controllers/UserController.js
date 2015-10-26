@@ -8,7 +8,7 @@ var password = require('machinepack-passwords');
 module.exports = {
     index:function(req,res,next){
         res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
-        res.view('homepage');
+        res.view('appMain');
     },
     demo:function(req,res,next){
         res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use

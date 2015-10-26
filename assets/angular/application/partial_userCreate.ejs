@@ -1,10 +1,6 @@
 
-<div ng-controller="UserController" class=""   ng-cloak>
-
-    
-
-    <!-- SIGNUP FORM --> 
-    <form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
+<!-- SIGNUP FORM --> 
+<form ng-submit="submitSignupForm()" id="sign-up-form" class="form-signin" name="signup">
     <h2 class="form-signin-heading">Create an account</h2>
     <p>{{signupForm.myName}}</p>
         <div class="row container-fluid">
@@ -104,6 +100,3 @@
                 </div>
             </footer>
         </div>
-    </div>
-</div>
-    <%block('localScripts','<script src="/angular/user/UserCntrl.js"></script> \r <script src="/angular/appGlobals.js"></script>') %>
