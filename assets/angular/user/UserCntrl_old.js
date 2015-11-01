@@ -8,10 +8,12 @@
  * and open the template in the editor.
  */
 //ToDo: Add method for alerting to duplicate emails
+
+
 angular.module('reditApp').controller('UserCntrl',['$scope','$http','$log','toastr','$timeout',function($scope,$http,$log,toastr,$timeout){
     $scope.signupForm = {
         loading:false,
-        myName:'',
+        myName:'jkk',
         myPartial:"/angular/application/partial_appSplash.ejs",
         myLastPartial:""
     };
@@ -43,18 +45,20 @@ angular.module('reditApp').controller('UserCntrl',['$scope','$http','$log','toas
         { action: "Call family", complete: false }];
     
     $scope.submitLoginForm = function(){
-        console.log('login Button Pressed \r password = ', $scope.loginForm.password,'\r email = ',$scope.loginForm.email);
+        console.log('my login Button Pressed \r\n password = ', $scope.loginForm.password,'\r\n email = ',$scope.loginForm.email);
         
         $http({url:'/user/login', method:"GET", params:{
             email:$scope.loginForm.email,
             password: $scope.loginForm.password}
         })                                                                                          
         .then(function onSuccess(sailsResponse){
-            $log.debug('Response = ',sailsResponse.data);
+            console.log('Response = ',sailsResponse.data);
             $timeout(function(){
-                window.location = '/';
+               console.log('About to call /newUser')
+               $state.go('newUser');
+                
             },2000),
-            toastr.success('You are now logged In');  
+           // toastr.success('You are now logged In');  
             
         })
         .catch(function onError(sailsResponse){
@@ -106,4 +110,5 @@ angular.module('reditApp').controller('UserCntrl',['$scope','$http','$log','toas
         });
     };   
 }]);
+
  

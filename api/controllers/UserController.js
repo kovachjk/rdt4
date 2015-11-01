@@ -12,7 +12,7 @@ module.exports = {
     },
     demo:function(req,res,next){
         res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
-        res.view('homepageDemo');
+        res.view('appDemo');
     },
     home:function(req,res,next){
         res.locals.layout = 'layouts/publicLayout';//Found in config/views.layout and spcifies what layout.ejs to use
@@ -23,15 +23,15 @@ module.exports = {
         res.view('about.ejs');
     },
     login:function(req,res,next){
-        console.log('L10 In userController.login');
+        console.log('L25 In userController.login');
         var param = req.query;
-        console.info("L16 Params PW = ",param.password);
-        console.log("L17 Params email = ",param.email);
+        console.info("L28 Params PW = ",param.password);
+        console.log("Params email = ",param.email);
         User.find()
             .where({email:param.email})
             .where({password:param.password})
             .exec(function(err,results){
-                console.info('Results Are: ', results);
+                //console.info('Results Are: ', results);
                 if(err){
                     console.log("Error = "+ err);
                     return res.notFound();
@@ -44,8 +44,7 @@ module.exports = {
                     //return res.render('404',{error:'User not found'});
                     return;
                 }
-                console.log('L35 User Login Response = ',JSON.stringify(results));
-                
+                console.log('L47 User Login Response = ',JSON.stringify(results));               
                 res.json(results);
                 return;
             }); 

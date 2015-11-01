@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 //angular.module('SignupModule').controller('SightController',['$scope','$http',function($scope,$http){
-angular.module('siteApp',[]).controller('SiteController',['$scope','$http',function($scope,$http){
+angular.module('r2dApp').controller('SiteController',['$scope','$http',function($scope,$http){
 
     $scope.greeting = { text: 'Hello',
     yourName:"JK"};

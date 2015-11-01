@@ -1,22 +1,31 @@
-
-    <div class="jumbotron col-sm-4 col-lg-8 col-centered">
-            <h1>Stillbright Technologies LLC</h1>
-            <p>Recip Diagnostic Project</p>
-        
-   {{signupForm.myName}}
-       <br>
-       <button class="btn btn-default " ng-click="showSignupForm()" >
-            Create New User and Site
-        </button>
-        <br><br>
-      <button class="btn col-med-6" ng-click="getPartial('partial_AppLogin.ejs')">
-            Sign In to Existing Site
-        </button>
-
-      <br><br>
-      <button type="button" class="btn   col-med-6" >
-               View Demo Site   
-      </button>
+<div class="row">
+    <div class="jumbotron col-lg-6 col-centered">
+        <h2>Stillbright Technologies LLC</h2>
+        <p>R2E Project</p>
+    <!-- Below shows that I can init a $scope var in a partial.  I ended up not using this 
+        <span ng-init="signupForm.myPartial='/angular/application/partial_userCreate.ejs'">x</span-->
+        <br>
+        <div>
+            <div class="  ">
+                <div>
+                    <a ui-sref="createLogin" class="btn btn-default ">
+                        <span> Create New User</span> 
+                     </a>
+                    </div>
+                <br>
+                <div>
+                    <a ui-sref="userLogin" class="btn btn-default ">
+                       <span> Sign In to Existing Site</span>
+                    </a>
+                </div>
+                <br>
+                <div>
+                    <a class="btn btn-default " >
+                        <span>  View Demo Site   </span>
+                    </a>
+                </div>
+            </div>
+            <br><br>
+        </div>
     </div>
-
-  
+</div>
