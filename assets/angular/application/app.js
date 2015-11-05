@@ -7,8 +7,16 @@ angular.module('reditApp',['ui.router','compareTo','toastr']);
 
 //From http://brewhouse.io/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html
 angular.module('reditApp').run(function ($rootScope) {
+    $rootScope.user = {
+        hashPath:'zz',
+        actionLevel:10
+    };
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams,fromState, fromParams) {
-        alert('I have reached $statechangestart');
+        
+        console.log('I have reached $statechangestart');
+        if($rootScope.user.hashPath == 'zz'){
+            console.log("You have permisson to proceed!");
+        }
     });
 });
 
