@@ -26,10 +26,11 @@ module.exports = {
         required: true,
         unique: true
     },
-    //The site hash that the user is currently logged into
-    siteHash: {
-        type: 'string',
-        defaultsTo: 'zz'
+    //The highest site level this user can reach
+    //No requested site hashed can be different or shorter(higher up) 
+    topLevelHash:{
+        type:'string',
+        defaultsTo:'zz'
     },
     // The encrypted password for the user
     // e.g. asdgh8a249321e9dhgaslcbqn2913051#T(@GHASDGA
@@ -41,7 +42,7 @@ module.exports = {
     //Viewer = 0, User= 1-5, Manager = 6-8,   Admin = 9, superUser = 69
     userAccessLevel:{
         type: 'integer',
-        defaultsTo: '0'//viewer
+        defaultsTo: '0'//0=client/viewer 5=super user in server have an array of random number 
     },
     // The timestamp when the the user last logged in
     // (i.e. sent a username and password to the server)

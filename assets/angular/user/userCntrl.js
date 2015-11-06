@@ -11,8 +11,8 @@
 
 
 angular.module('reditApp').controller('UserCntrl',
-    ['$scope','$http','$log','toastr','$state', '$timeout' ,
-        function($scope,$http,$log,toastr,$state,$timeout){
+    ['$scope','$http','$log','toastr','$state', '$timeout','canUser' ,
+        function($scope,$http,$log,toastr,$state,$timeout, canUser){
     $scope.signupForm = {
         loading:false,
         myName:'jkk',
@@ -34,7 +34,11 @@ angular.module('reditApp').controller('UserCntrl',
     $scope.showSignupForm = function(){
         $log.debug("In showSignupForm");
         $scope.signupForm.myName = 'JKK';
-        $scope.signupForm.myPartial = "/angular/user/goodbye.ejs"
+        $scope.signupForm.myPartial = "/angular/user/goodbye.ejs";
+    };
+    $scope.navigateTo = function(where){
+        console.log("I'm in navigateTo()");
+        $state.go(where);
     };
     $scope.showLoginForm = function(){
         

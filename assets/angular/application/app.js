@@ -8,14 +8,18 @@ angular.module('reditApp',['ui.router','compareTo','toastr']);
 //From http://brewhouse.io/blog/2014/12/09/authentication-made-simple-in-single-page-angularjs-applications.html
 angular.module('reditApp').run(function ($rootScope) {
     $rootScope.user = {
-        hashPath:'zz',
+        pathHash:'zz',
         actionLevel:10
     };
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams,fromState, fromParams) {
         
         console.log('I have reached $statechangestart');
-        if($rootScope.user.hashPath == 'zz'){
+        if($rootScope.user.pathHash == 'aa'){
             console.log("You have permisson to proceed!");
+        }
+        else{
+            console.log("Fuck off!");
+            //event.preventDefault();
         }
     });
 });
@@ -33,13 +37,14 @@ angular.module('reditApp').config(['$stateProvider', '$urlRouterProvider',functi
 
 $stateProvider        
     // HOME STATES AND NESTED VIEWS ========================================
-    .state('/', {
+    .state('/index', {
         url: '/',
+        controller: 'UserCntrl',
         templateUrl: 'angular/application/partial_appSplash.ejs'
     })
-    .state('userLogin',{
-        url: '/login',
-        controller: 'UserCntrl',
+    .state('index.userLogin',{
+        url: 'index.userLogin',
+        //controller: 'UserCntrl',
         templateUrl: 'angular/application/partial_userLogin.ejs'        
     })
     .state('userCreate',{
@@ -73,9 +78,7 @@ $stateProvider
             }
         }
 
-    });
-        
-        
+    });       
 }]);
 
 

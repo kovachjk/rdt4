@@ -11,67 +11,63 @@
  */
 angular.module('reditApp').service('canUser',function($http){
     var userAthority  = {
-        userName: 'Jose Hemanis',
-        userEmail: 'j@k.com',
-        userLevel: 123,
-        userHash: 'aabbcc'
         
+        userLevel: 123,
+        topLevelHash: 'zz'
+    
     };
     this.sayHello = function(){
        alert("My first session function!");
-   } ;
-   this.userHash = function(newHash){
-       if(newHash){
-           userAthority.userHash = newHash;
-           return userAthority.userHash;
-       }
-       return userAthority.userHash;   
-   };
-   this.userName = function(newName){
-       if(newName){
-           userAthority.userName = newName;
-           return userAthority.userName;
-       }
-       return userAthority.userHash;
-   };
-   this.userEmail = function(newEmail){
-       if(newEmail){
-           userAthority.userEmail = newEmail;
-           return userAthority.userEmail;
-       }
-       return userAthority.userEmail;
-   };
-   this.login = function(email, password,callback){
-        console.log('Processing login service request. Email = ',email, ' Password = ', password);
-        $http({url:'/user/login', method:"GET", params:{
-            email:email,
-            password: password}
-        })                                                                                          
-        .then(function onSuccess(sailsResponse){
-            console.log('Response = ',sailsResponse.data);
-               callback(sailsResponse.data);
-               // console.log('About to call /newUser');
-               // $state.go('userCreate');
-               // return {result:'loggedin',msg:'Greetings, You are now logged in'};
-           // toastr.success('You are now logged In');  
-            
-        })
-        .catch(function onError(sailsResponse){
-            // Handle known error type(s).
-            // If using sails-disk adpater -- Handle Duplicate Key
-           // console.info('Response Test');
-            //console.info('Response Error = ',sailsResponse);
-            var emailAddressAlreadyInUse = sailsResponse.status == 409;
-            console.info("User Msg",sailsResponse);
-            if (emailAddressAlreadyInUse) {
-   
-                //toastr.error('That email address has already been taken, please try again.');
-                return {result:'loggedOut',msg:'That email address has already been taken, please try again.'};
-            }
-        })
-        .finally(function eitherWay(){
-            $scope.signupForm.loading = false;
-        });
+    };
+    this.userHash = function(newHash){
+        if(newHash){
+            userAthority.userHash = newHash;
+            return userAthority.userHash;
+        }
+        return userAthority.userHash;   
+    };
+    this.userName = function(newName){
+        if(newName){
+            userAthority.userName = newName;
+            return userAthority.userName;
+        }
+        return userAthority.userHash;
+    };
+    
+    this.userEmail = function(newEmail){
+        if(newEmail){
+            userAthority.userEmail = newEmail;
+            return userAthority.userEmail;
+        }
+        return userAthority.userEmail;
+    };
+    //Takes hash of the destination site user requests and compairs it to
+    //his top level hash
+    this.goTo = function(destHash){
+        //length  of hash =  top level of user  
+        if(destHash == userAthority.topLevelHash.substr(0,userAthority.topLevelHash.length)){
+            return true;
+        }else{
+            return false;
+        };
+    };
+    /**
+     * The following functions will use a lookup table that consists of hashes of 
+     * the different actions on different modules that has been configured by an
+     * administrator to control the capabilty of users to perform actions
+     * @type Arguments
+     */
+    this.edit = function(module, action){
+        
+    };
+    this.delete = function(module, action){
+        
+    };
+    this.create = function(module, action){
+        
+    };
+    this.view = function(module, action){
+        
     };
 });
 
